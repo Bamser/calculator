@@ -4,6 +4,8 @@ const input2 = document.getElementById('input2')
 const submitBtn = document.getElementById('submit')
 const plusBtn = document.getElementById('plus')
 const minusBtn = document.getElementById('minus')
+const multiplyBtn = document.getElementById('multiply')
+const divideBtn = document.getElementById('divide')
 let action = '+'
 
 plusBtn.onclick = function () {
@@ -13,7 +15,14 @@ plusBtn.onclick = function () {
 minusBtn.onclick = function () {
   action = '-'
 }
+multiplyBtn.onclick = function () {
+  action = '*'
+}
+divideBtn.onclick = function () {
+  action = '/'
+}
 
+// Цвет шрифта результата
 function printResult(result) {
   if (result > 0) {
     resultElement.style.color = 'green'
@@ -28,8 +37,12 @@ function computeNumbersWithAction(inp1, inp2, actionSymbol) {
   const num2 = Number(inp2.value)
   if (actionSymbol == '+') {
     return num1 + num2
-  } else {
+  } else if (actionSymbol == '-') {
     return num1 - num2
+  } else if (actionSymbol == '*') {
+    return num1 * num2
+  } else {
+    return num1 / num2
   }
 }
 
